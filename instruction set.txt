@@ -1,0 +1,54 @@
+16bits
+op(4bits)	     reg(3bits)       funct(3bits)
+
+R sort:
+            0000(OP)      [2:0]rs      [2:0]rt	 [2:0]rd	   [2:0]funct
+add      0000				   000		rd=rs+rt
+addu    0000				   001		rd=rs+rt(u)
+sub       0000				   010		rd=rs-rt
+subu     0000				   011		rd=rs-rt(u)
+
+slt         0000				   100		rd=(rs<rt)?1:0
+
+and       0000				   101		rd=rs&rt
+or         0000				   110		rd=rs|rt
+
+jr          0000                             000          000	   111		PC=rs
+
+I sort:
+            [3:0]OP        [2:0]rs       [2:0]rt      [5:0]im
+addi     1000						rt=rs+im
+subi      1001						rt=rs-im
+andi      1010						rt=rs&im
+ori        1011						rt=rs|im
+
+lw         1100						rt=mem[rs+im]
+sw        1101						mem[rs+im]=rt
+
+beq      1110						PC=(rs==rt)?(PC+2+im<<1):PC
+bne      1111						PC=(rs!=rt)?(PC+2+im<<1):PC
+
+J sort:
+            [3:0]OP        [11:0]addr
+j           0100						PC={(PC+2)[15:12],addr}
+jal        0101						R7=PC;
+							PC={(PC+2)[15:12],addr}
+
+Register Group:
+16 bits
+R0	000	always return 0
+R1	001
+R2	010
+R3	011
+R4	100
+R5	101
+R6	110          SP
+R7	111	return address
+
+Special:
+16bits
+PC		program counter
+
+
+
+
