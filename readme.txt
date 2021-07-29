@@ -6,7 +6,7 @@ Before simulation, you can directly write your code in assembly format and then 
 to machine code with python code 'MIPS.py'. 
 
 Note that the paradigm of 16bits MIPS is in the 'instruction set.txt', and you are supposed 
-to write your assembly code in 'instruction.txt',which result will be saved in 'test.txt'.
+to write your assembly code in 'instruction.txt',whose result will be saved in 'test.txt'.
 The default path of these 2 files are 'D:/' , however, you can change it in python code 
 according to your thought.
 
