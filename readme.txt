@@ -12,18 +12,18 @@ according to your thought.
 
 ---------------------------------------File Description--------------------------------------------
 .\example			A running example done by author, which includes the waveform result, 
-			test assembly code and machine code
+				test assembly code and machine code
 
-.\example	\instruction.txt	You can write your assembly code here
+.\example\instruction.txt	You can write your assembly code here
 
-.\example	\test.txt		The visual memory file that will be loaded into visual ram in MIPS_tb.v, which
-			is usually writen by 'MIPS.py', however, you can also write it yourself.
+.\example\test.txt		The visual memory file that will be loaded into visual ram in MIPS_tb.v, which
+				is usually writen by 'MIPS.py', however, you can also write it yourself.
 
 .\instruction set.txt		The paradigm of this MIPS CPU instruction set
 
 .\MIPS.py			A python code that transfer your assembly code to machine code, and the
-			default starting address will be 0x0 (set in the MIPS_tb.v).
+				default starting address will be 0x0 (set in the MIPS_tb.v).
 
 .\MIPS.v			The top design done with Verilog
 
-.\MIPS_tb.v		The simulation file done with Verilog
+.\MIPS_tb.v			The simulation file done with Verilog
