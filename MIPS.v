@@ -18,7 +18,6 @@ module MIPS(
 	reg [15:0] PC,IR;
 	reg [3:0] OP;
 	reg [2:0] funct;//[2:0]for real funct
-						 //[3:3]funct for control:1 for valid, 0 for invalid(e.g. funct=000,OP=I or J sort)
 						 
 	reg [2:0] state,next_state;
 	parameter IDLE = 3'b000,
@@ -263,11 +262,6 @@ module MIPS(
 							PC <= {PC_1[15:12],addr};
 						end
 					end
-	
-					//if(hold_EX)
-						//next_state <= EX;
-					//else
-						//next_state <= MEM
 					else
 						next_state <= IDLE;
 						
@@ -411,7 +405,6 @@ module MIPS(
 									next_state <= MEM;
 									write_cnt <= write_cnt;
 								end
-								//if()
 							end
 						default:
 							begin
@@ -436,7 +429,6 @@ module MIPS(
 							3'd5:R[5] <= temp;
 							3'd6:R[6] <= temp;
 							3'd7:R[7] <= temp;
-							default:{R[0],R[1],R[2],R[3],R[4],R[5],R[6],R[7]} <= {R[0],R[1],R[2],R[3],R[4],R[5],R[6],R[7]};
 						endcase
 					end
 					else if(OP[3])//I sort
@@ -452,7 +444,6 @@ module MIPS(
 								3'd5:R[5] <= temp;
 								3'd6:R[6] <= temp;
 								3'd7:R[7] <= temp;
-								default:{R[0],R[1],R[2],R[3],R[4],R[5],R[6],R[7]} <= {R[0],R[1],R[2],R[3],R[4],R[5],R[6],R[7]};
 							endcase
 						end
 					end
